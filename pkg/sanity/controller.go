@@ -1057,6 +1057,9 @@ var _ = DescribeSanity("Controller Service [Controller Server]", func(sc *TestCo
 			if !isControllerCapabilitySupported(r, csi.ControllerServiceCapability_RPC_PUBLISH_UNPUBLISH_VOLUME) {
 				Skip("Controller Publish, UnpublishVolume not supported")
 			}
+			if !isControllerCapabilitySupported(r, csi.ControllerServiceCapability_RPC_CREATE_DELETE_VOLUME) {
+				Skip("Controller Create, DeleteVolume not supported")
+			}
 		})
 
 		It("should work", func() {
